@@ -1,0 +1,16 @@
+#Comandos basicos de GIT
+
+# git 
+"""
+Es un servidor distribuido centralizado,con diferentes partes.
+Working o unstage / es la primera fase / contienen ficheros importantes
+stage / es la segunda fase / donde git sube los ficheros que le indicas y ignora los importantes o que no se han dado subida
+commit / es la tercera fase / lo que hace es desaparece de la fase anterior y se le crea un comentario. 
+server / ultima fase / subirlo a un servicio online
+
+https://gitignore.io
+
+git add 
+"""
+
+modificacion para validar el cambio hay que hacer un git add del fichero modificado
