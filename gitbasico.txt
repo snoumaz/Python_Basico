@@ -19,4 +19,4 @@ test
 
 git remote add origin https://github.com/snoumaz/Python_Basico.git
 git branch -M main
-git push -u origin main
+git push -u origin maincd
