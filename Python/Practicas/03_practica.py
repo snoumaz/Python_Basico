@@ -40,43 +40,6 @@ else:
 #{}"ddjsdfnañksmjklans" .format(lkaskn)
 """
 
-# Pedir al usuario un numero
-# Pedir otro numero
-# Si no son numeros, le diremos que no se puede hacer 
-# Pedir que operacion quiere hacer (7 posibilades)
-    # Suma
-    # resta
-    # multi
-    # division
-    # expo
-    # divi_entera
-    # modulo
-# Si no es ninguna de estas un mensaje de error
-# Si divide por 0 tambien error
-
-numero_a = input("Introduce un Numero: ")
-numero_b = input("Introduce un Numero: ")
-operacion = input("Que operacion quieres")
-
-if numero_a.isnumeric() or numero_b.isnumeric():
-    pass
-elif operacion == suma:
-    print(f"{numero_a + numero_b}")
-elif operacion == resta:
-    print(f"{numero_a - numero_b}")
-elif operacion == multi:
-    print(f"{numero_a * numero_b}")
-elif operacion == division:
-    print(f"{numero_a / numero_b}")
-elif operacion == divi_entera:
-    print(f"{numero_a // numero_b}")
-elif operacion == expo:
-    print(f"{numero_a ** numero_b}")    
-elif operacion == modulo:
-    print(f"{numero_a % numero_b}")
-else:
-    print("No se puede hacer")
-
 """
 Si numero_a, numero_b es numerico:
     formatea a enteros
