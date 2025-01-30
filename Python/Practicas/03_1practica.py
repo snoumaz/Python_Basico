@@ -11,9 +11,15 @@ operacion = input("""¿Qué operación quieres realizar?
 7. modulo
 Tu elección: """)
 
-# Verificar si los números son válidos (enteros o decimales)
-if (numero_a.isnumeric() or (numero_a.replace(".", "", 1).isdecimal() and numero_a.count(".") == 1)) and \
-   (numero_b.isnumeric() or (numero_b.replace(".", "", 1).isdecimal() and numero_b.count(".") == 1)):
+# Verificar si los números son válidos (enteros, decimales o negativos)
+def es_numero_valido(num):
+    # Eliminar el signo negativo si existe
+    if num.startswith('-'):
+        num = num[1:]
+    # Verificar si es entero o decimal
+    return num.isnumeric() or (num.replace(".", "", 1).isdecimal() and num.count(".") == 1)
+
+if es_numero_valido(numero_a) and es_numero_valido(numero_b):
     # Convertir a float
     num_a = float(numero_a)
     num_b = float(numero_b)
