@@ -24,16 +24,80 @@ else:
 # si tiene 0 o mas de 120: No me lo creo
 # si tiene menos de 18: Aun no puedes votar, te faltan x años
 # si tienes mas de 18: Puedes votar desde hace x años
-
+"""
 edad = int(input("Pon tu edad ->"))
 
 if 0 > edad:
     print('NO me lo creo')
 elif edad < 18:
-    print("Aun no puedes votar, te faltan " + str(18 - edad) + " años")
+    print(f"Aun no puedes votar, te faltan {18 - edad} años")
 elif edad >= 18:
     print("Puedes votar desde hace " + str(edad - 18) + " años")
 elif edad >= 120:
     print("No me lo creo")
 else:
     pass
+#{}"ddjsdfnañksmjklans" .format(lkaskn)
+"""
+
+# Pedir al usuario un numero
+# Pedir otro numero
+# Si no son numeros, le diremos que no se puede hacer 
+# Pedir que operacion quiere hacer (7 posibilades)
+    # Suma
+    # resta
+    # multi
+    # division
+    # expo
+    # divi_entera
+    # modulo
+# Si no es ninguna de estas un mensaje de error
+# Si divide por 0 tambien error
+
+numero_a = input("Introduce un Numero: ")
+numero_b = input("Introduce un Numero: ")
+operacion = input("Que operacion quieres")
+
+if numero_a.isnumeric() or numero_b.isnumeric():
+    pass
+elif operacion == suma:
+    print(f"{numero_a + numero_b}")
+elif operacion == resta:
+    print(f"{numero_a - numero_b}")
+elif operacion == multi:
+    print(f"{numero_a * numero_b}")
+elif operacion == division:
+    print(f"{numero_a / numero_b}")
+elif operacion == divi_entera:
+    print(f"{numero_a // numero_b}")
+elif operacion == expo:
+    print(f"{numero_a ** numero_b}")    
+elif operacion == modulo:
+    print(f"{numero_a % numero_b}")
+else:
+    print("No se puede hacer")
+
+"""
+Si numero_a, numero_b es numerico:
+    formatea a enteros
+sino:
+    muestra Eso no se puede hacer
+solicita operacion:
+    si es suma numero_a + numero_b = resuldado
+elif 
+    si es suma numero_a + numero_b = resuldado
+elif
+    si es suma numero_a + numero_b = resuldado
+elif
+    si es suma numero_a + numero_b = resuldado
+elif
+    si es suma numero_a + numero_b = resuldado
+elif
+    si es suma numero_a + numero_b = resuldado
+elif
+    si es suma numero_a + numero_b = resuldado
+sino:
+    Error
+"""
+
+ 
