@@ -21,3 +21,16 @@ except: # Error generico
     print("Ha ocurrido un error")
 
 print("El programa continua ...")
+
+try:
+    #intentar algo
+    pass
+except:
+    # si falla ejecuta esto
+    pass
+else:
+    # si no falla ejecuta esto
+    pass
+finally:
+    # se ejecuta siempre
+    pass

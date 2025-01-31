@@ -95,30 +95,56 @@ sino:
 # Si no es ninguna de estas un mensaje de error
 # Si divide por 0 tambien error
 """
-numero_a = input("Introduce un Numero: ")
-numero_b = input("Introduce un Numero: ")
-operacion = input("Que operacion quieres")
+import os
+os.system("clear")
 
-if numero_a and numero_b isnumeric():
-    
-elif operacion == suma:
-    print(f"{numero_a + numero_b}")
-elif operacion == resta:
-    print(f"{numero_a - numero_b}")
-elif operacion == multi:
-    print(f"{numero_a * numero_b}")
-elif operacion == division:
-    print(f"{numero_a / numero_b}")
-elif operacion == divi_entera:
-    print(f"{numero_a // numero_b}")
-elif operacion == expo:
-    print(f"{numero_a ** numero_b}")    
-elif operacion == modulo:
-    print(f"{numero_a % numero_b}")
-else:
-    print("No se puede hacer")
+try:
+    numero_a = float(input("Introduce un Numero: "))
+    numero_b = float(input("Introduce un Numero: "))
+
+
+    operacion = input("""#Que operacion quieres:
+    #suma
+    """resta
+    multi
+    division
+    expo
+    divi_entera
+    modulo
+    Escribe la palabra de la operacion:
+    """
+    """)
+    #suma = "suma"
+    #resta = "resta"
+    #multi = "multi"
+    #division = "division"
+    #expo = "expo"
+    #divi_entera = "divi_entera"
+    #modulo = "modulo"
+    if operacion == "suma":
+        print(f"{numero_a} + {numero_b} = {numero_a + numero_b}")
+    elif operacion == "resta":
+        print(f"{numero_a} - {numero_b} = {numero_a - numero_b}")
+    elif operacion == "multi":
+        print(f"{numero_a} * {numero_b} = {numero_a * numero_b}")
+    elif operacion == "division":
+        print(f"{numero_a} / {numero_b} = {numero_a / numero_b}")
+    elif operacion == "divi_entera":
+        print(f"{numero_a} // {numero_b} = {numero_a // numero_b}")
+    elif operacion == "expo":
+        print(f"{numero_a} ** {numero_b} = {numero_a ** numero_b}")    
+    elif operacion == "modulo":
+        print(f"{numero_a} % {numero_b} ={numero_a % numero_b}")
+    else:
+        print("No se puede hacer")
+except ValueError:
+    print("Introduce un numero en Cifras")
+except ZeroDivisionError:
+    print("No se puede dividir por Cero")
+finally:
+    print("Resultado")
+
 """
-
 # Solulcion Ferran
 """
 num_1 = input("Escriba el primer numero -> ")
@@ -127,7 +153,7 @@ if num_1.isalpha(): # Comprobacion que el dato introducido es caracter o numeric
     print("No se puede hacer")
 else:
     print("Se puede hacer")
-"""
+
 # Excepciones
 num_1 = float(input("Escriba el primer numero -> "))
 # provar "1", "1.2", "uno", "??"
@@ -135,3 +161,104 @@ if num_1.isalpha(): # Comprobacion que el dato introducido es caracter o numeric
     print("No se puede hacer")
 else:
     print("Se puede hacer")
+"""
+"""
+# Se puede producir una excepcion a causa de lo que introduzca el usuario:
+try:
+    # Pedimos los numeros
+    num_1 = float(input("Introduce un numero: "))
+    num_2 = float(input("Introduce un numero: "))
+    print("""
+    """Operaciones:
+        suma
+        resta
+        multi
+        division
+        expo
+        divi_entera
+        modulo
+    """""")
+    op = input("¿Que operacion quieres realizar?")
+
+    if op == "suma":
+        print(f"{num_1} + {num_2} = {num_1 + num_2}")
+    elif op == "resta":
+        print(f"{num_1} - {num_2} = {num_1 - num_2}")
+    elif op == "multi":
+        print(f"{num_1} * {num_2} = {num_1 * num_2}")
+    elif op == "division":
+        print(f"{num_1} / {num_2} = {num_1 / num_2}")
+    elif op == "divi_entera":
+        print(f"{num_1} // {num_2} = {num_1 // num_2}")
+    elif op == "expo":
+        print(f"{num_1} ** {num_2} = {num_1 ** num_2}")
+    elif op == "modulo":
+        print(f"{num_1} % {num_2} = {num_1 % num_2}")
+except ValueError:
+    print("Has de describir un numero en cifra")
+except ZeroDivisionError:
+    print("No se puede dividir entre cero")
+"""
+
+# Calculadora a base de mathc
+
+import os
+os.system("clear")
+"""
+try:
+    numero_a = float(input("Introduce un Numero: "))
+    numero_b = float(input("Introduce un Numero: "))
+    print"""("""
+    Operaciones:
+        suma
+        resta
+        multi
+        division
+        expo
+        divi_entera
+        modulo
+    """)"""
+    op = input("¿Que operacion quieres realizar?")
+    match operacion: 
+        case "suma":
+            print(f"{numero_a} + {numero_b} = {numero_a + numero_b}")
+        case "resta":
+            print(f"{numero_a} - {numero_b} = {numero_a - numero_b}")
+        case "multi":
+            print(f"{numero_a} * {numero_b} = {numero_a * numero_b}")
+        case "division":
+            print(f"{numero_a} / {numero_b} = {numero_a / numero_b}")
+        case "divi_entera":
+            print(f"{numero_a} // {numero_b} = {numero_a // numero_b}")
+        case "expo":
+            print(f"{numero_a} ** {numero_b} = {numero_a ** numero_b}")    
+        case "modulo":
+            print(f"{numero_a} % {numero_b} ={numero_a % numero_b}")
+        case _:
+            print("Operacion no identificada")
+except ValueError:
+    print("Introduce un numero en Cifras")
+except ZeroDivisionError:
+    print("No se puede dividir por Cero")
+finally:
+    return 0
+"""
+# Preguntar al usuario que dia de la se mana es:
+# si dice lunes toca sistemas
+# si dice martes miercoles jueves o viernes toca programacion
+# si dice sabado domingo descansa coño
+# si dice otra cosa Creo que estas confundido
+
+dia = input("Que dia de la semana estamos: ")
+dia = dia.lower()
+match dia:
+    case "lunes":
+        print("Hoy toca sistemas.")
+    case "martes" | "miercoles" | "jueves" | "viernes":
+        print("Hoy toca Python.")
+    case "sabado" | "domingo":
+        print("Es fin de semana.")
+    case _:
+        print("Creo que estas confundido.")
+finally:
+    return 0
