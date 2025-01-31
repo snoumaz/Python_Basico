@@ -103,17 +103,17 @@ try:
     numero_b = float(input("Introduce un Numero: "))
 
 
-    operacion = input("""#Que operacion quieres:
+    operacion = input(#Que operacion quieres:
     #suma
-    """resta
-    multi
-    division
-    expo
-    divi_entera
-    modulo
-    Escribe la palabra de la operacion:
-    """
-    """)
+    #resta
+    #multi
+    #division
+    #expo
+    #divi_entera
+    #modulo
+    #Escribe la palabra de la operacion:
+    
+    
     #suma = "suma"
     #resta = "resta"
     #multi = "multi"
@@ -169,15 +169,16 @@ try:
     num_1 = float(input("Introduce un numero: "))
     num_2 = float(input("Introduce un numero: "))
     print("""
-    """Operaciones:
-        suma
-        resta
-        multi
-        division
-        expo
-        divi_entera
-        modulo
-    """""")
+    #Operaciones:
+    #   suma
+    #    resta
+    #    multi
+    #   division
+    #   expo
+    #   divi_entera
+    #   modulo
+    
+"""
     op = input("¿Que operacion quieres realizar?")
 
     if op == "suma":
@@ -217,7 +218,8 @@ try:
         expo
         divi_entera
         modulo
-    """)"""
+    """)
+"""
     op = input("¿Que operacion quieres realizar?")
     match operacion: 
         case "suma":
@@ -260,5 +262,4 @@ match dia:
         print("Es fin de semana.")
     case _:
         print("Creo que estas confundido.")
-finally:
-    return 0
+return 0
