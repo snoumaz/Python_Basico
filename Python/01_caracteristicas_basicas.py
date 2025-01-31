@@ -125,3 +125,10 @@ print(len(palabras_en_frases))
 
 print( 10 > 5 )
 print( "abeja" > "flor") #compara solo asta que el caracter es mayor que el otro
+
+# Variable de los numeros no sirven para decimales
+
+print(edad.isdigit()) #Comprueba si son digitos
+print(edad.isdecimal()) #Comprueba si son decimales
+print(edad.isnumeric()) #Comprueba si son numeros enteros
+print(edad.isalpha()) #Comprueba si son caracteres

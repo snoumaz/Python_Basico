@@ -59,3 +59,8 @@ print( 1 < 2 ) #false
 print( 1 < 1 ) #false
 print( 1 <= 1 ) #True
 
+# Metodos para Numeros
+# redondea un numero a la izquierda o derecha
+redondea_izquierda = round(3.141595265359, 2)
+
+# Valor am
