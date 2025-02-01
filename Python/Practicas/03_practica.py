@@ -5,19 +5,19 @@
 # si tienes menos de 40 años eres adulto
 # si tienes mas de 40 tu puedes con todo
 
-edad = int(input("Pon tu edad ->")) # Variable que int transforma lo solicitado al usuario a numero entero input() se utiliza para pedir entroducir datos
+edad = int(input("Pon tu edad ->"))  # Solicita y convierte la edad a número entero
 
-if 0 <= edad < 12: # is = si 
+if 0 <= edad < 12:                   # Verifica si la edad está en el rango de niño/a
     print("Eres un niño/a")
-elif edad <= 18: # elif = si no 
+elif edad <= 18:                     # Verifica si la edad está en el rango de adolescente
     print("Eres adolescente")
-elif edad <= 30:
+elif edad <= 30:                     # Verifica si la edad está en el rango de joven
     print("Eres Joven")
-elif edad <= 40:
+elif edad <= 40:                     # Verifica si la edad está en el rango de adulto
     print("Eres adulto")
-elif edad <= 120:
+elif edad <= 120:                    # Verifica si la edad está en un rango realista
     print("Tu puedes con todo")
-else:
+else:                               # Si la edad está fuera de rangos realistas
     print("Tienes 2 pies en la tumba")
 
 # Preguntar al usuario la edad
@@ -25,19 +25,18 @@ else:
 # si tiene menos de 18: Aun no puedes votar, te faltan x años
 # si tienes mas de 18: Puedes votar desde hace x años
 
-edad = int(input("Pon tu edad ->"))
+edad = int(input("Pon tu edad ->"))  # Solicita y convierte la edad nuevamente
 
-if 0 > edad:
+if 0 > edad:                         # Comprueba si la edad es negativa (inválida)
     print('NO me lo creo')
-elif edad < 18:
-    print(f"Aun no puedes votar, te faltan {18 - edad} años")
-elif edad >= 18:
-    print("Puedes votar desde hace " + str(edad - 18) + " años")
-elif edad >= 120:
+elif edad < 18:                      # Comprueba si es menor de edad
+    print(f"Aun no puedes votar, te faltan {18 - edad} años")  # Calcula años faltantes
+elif edad >= 18:                     # Comprueba si puede votar
+    print("Puedes votar desde hace " + str(edad - 18) + " años")  # Calcula años con derecho a voto
+elif edad >= 120:                    # Comprueba si la edad es poco realista
     print("No me lo creo")
-else:
+else:                               # Caso por defecto
     pass
-
 
 # Solucion ferran
 
@@ -55,32 +54,6 @@ else:
     if edad <  mayoria_edad:
         print(f"Aun no puedes votar, te faltan {diferencia} años")
 
-"""
-Si numero_a, numero_b es numerico:
-    formatea a enteros
-Si es decimal o no:
-    formatear a decimales
-Si numero_a y numero _b son negativos:
-    tener en cuenta si son negativos
-sino:
-    muestra Eso no se puede hacer
-solicita operacion:
-    si es suma numero_a + numero_b = resuldado
-elif 
-    si es suma numero_a + numero_b = resuldado
-elif
-    si es suma numero_a + numero_b = resuldado
-elif
-    si es suma numero_a + numero_b = resuldado
-elif
-    si es suma numero_a + numero_b = resuldado
-elif
-    si es suma numero_a + numero_b = resuldado
-elif
-    si es suma numero_a + numero_b = resuldado
-sino:
-    Error
-"""
 # Pedir al usuario un numero
 # Pedir otro numero
 # Si no son numeros, le diremos que no se puede hacer 
@@ -249,14 +222,15 @@ except ZeroDivisionError:
 # si dice sabado domingo descansa coño
 # si dice otra cosa Creo que estas confundido
 
-dia = input("Que dia de la semana estamos: ")
-dia = dia.lower()
-match dia:
-    case "lunes":
+dia = input("Que dia de la semana estamos: ")  # Solicita el día de la semana
+dia = dia.lower()                  # Convierte entrada a minúsculas para estandarizar
+
+match dia:                         # Estructura de control match para evaluar el día
+    case "lunes":                  # Caso específico para lunes
         print("Hoy toca sistemas.")
-    case "martes" | "miercoles" | "jueves" | "viernes":
+    case "martes" | "miercoles" | "jueves" | "viernes":  # Casos para días laborables
         print("Hoy toca Python.")
-    case "sabado" | "domingo":
+    case "sabado" | "domingo":     # Casos para fin de semana
         print("Es fin de semana.")
-    case _:
-        print("Creo que estas confundido.")
+    case _:                        # Caso por defecto para entradas no válidas
+        print("Creo que estas confundido.") 
