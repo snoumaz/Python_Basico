@@ -1,7 +1,7 @@
-"""# Pedir al usuario un numero
+# Pedir al usuario un numero
 numero_a = input("Introduce un número: ")
 numero_b = input("Introduce otro número: ")
-operacion = input(""¿Qué operación quieres realizar?
+operacion = input("""¿Qué operación quieres realizar?
 1. suma
 2. resta
 3. multi
@@ -9,7 +9,7 @@ operacion = input(""¿Qué operación quieres realizar?
 5. expo
 6. divi_entera
 7. modulo
-Tu elección: "")
+Tu elección: \n""")
 
 # Verificar si los números son válidos (enteros, decimales o negativos)
 def es_numero_valido(num):
@@ -52,7 +52,7 @@ if es_numero_valido(numero_a) and es_numero_valido(numero_b):
         print("Operación no válida")
 else:
     print("Por favor, introduce números válidos")
-"""
+
     # Preguntar al usuario que dia de la se mana es:
 # si dice lunes toca sistemas
 # si dice martes miercoles jueves o viernes toca programacion

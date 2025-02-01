@@ -4,12 +4,12 @@
 # si tienes menos de 30 años eres joven
 # si tienes menos de 40 años eres adulto
 # si tienes mas de 40 tu puedes con todo
-"""
-edad = int(input("Pon tu edad ->"))
 
-if 0 <= edad < 12:
+edad = int(input("Pon tu edad ->")) # Variable que int transforma lo solicitado al usuario a numero entero input() se utiliza para pedir entroducir datos
+
+if 0 <= edad < 12: # is = si 
     print("Eres un niño/a")
-elif edad <= 18:
+elif edad <= 18: # elif = si no 
     print("Eres adolescente")
 elif edad <= 30:
     print("Eres Joven")
@@ -19,12 +19,12 @@ elif edad <= 120:
     print("Tu puedes con todo")
 else:
     print("Tienes 2 pies en la tumba")
-"""
+
 # Preguntar al usuario la edad
 # si tiene 0 o mas de 120: No me lo creo
 # si tiene menos de 18: Aun no puedes votar, te faltan x años
 # si tienes mas de 18: Puedes votar desde hace x años
-"""
+
 edad = int(input("Pon tu edad ->"))
 
 if 0 > edad:
@@ -37,8 +37,8 @@ elif edad >= 120:
     print("No me lo creo")
 else:
     pass
-"""
-"""
+
+
 # Solucion ferran
 
 mayoria_edad = 18 # Variable determinar la mayoria edad
@@ -54,7 +54,7 @@ else:
     diferencia = abs(mayoria_edad - edad) # variable que hace el valor absoluto de la mayoria de edad y la edad
     if edad <  mayoria_edad:
         print(f"Aun no puedes votar, te faltan {diferencia} años")
-"""
+
 """
 Si numero_a, numero_b es numerico:
     formatea a enteros
@@ -94,24 +94,24 @@ sino:
     # modulo
 # Si no es ninguna de estas un mensaje de error
 # Si divide por 0 tambien error
-"""
-import os
-os.system("clear")
+
+import os # importa libreria OS 
+os.system("clear") # Pide realizar el comando del sistema que ponemos entre parentesis 
 
 try:
-    numero_a = float(input("Introduce un Numero: "))
-    numero_b = float(input("Introduce un Numero: "))
+    numero_a = float(input("Introduce un Numero: ")) # Introduccion de datos que se transforman en decimales con la funcion float()
+    numero_b = float(input("Introduce un Numero: ")) # Introduccion de datos que se transforman en decimales con la funcion float()
 
 
-    operacion = input(#Que operacion quieres:
-    #suma
-    #resta
-    #multi
-    #division
-    #expo
-    #divi_entera
-    #modulo
-    #Escribe la palabra de la operacion:
+    operacion = input("""Que operacion quieres:  
+    suma
+    resta
+    multi
+    division
+    expo
+    divi_entera
+    modulo
+    Escribe la palabra de la operacion: \n\n""") # Variable donde se solicita una introducion de datos
     
     
     #suma = "suma"
@@ -121,32 +121,32 @@ try:
     #expo = "expo"
     #divi_entera = "divi_entera"
     #modulo = "modulo"
-    if operacion == "suma":
-        print(f"{numero_a} + {numero_b} = {numero_a + numero_b}")
-    elif operacion == "resta":
-        print(f"{numero_a} - {numero_b} = {numero_a - numero_b}")
-    elif operacion == "multi":
-        print(f"{numero_a} * {numero_b} = {numero_a * numero_b}")
-    elif operacion == "division":
-        print(f"{numero_a} / {numero_b} = {numero_a / numero_b}")
-    elif operacion == "divi_entera":
-        print(f"{numero_a} // {numero_b} = {numero_a // numero_b}")
-    elif operacion == "expo":
-        print(f"{numero_a} ** {numero_b} = {numero_a ** numero_b}")    
-    elif operacion == "modulo":
-        print(f"{numero_a} % {numero_b} ={numero_a % numero_b}")
-    else:
+    if operacion == "suma": # Comparacion de si la variable operacion es igual a suma realiza la operacion de abajo
+        print(f"{numero_a} + {numero_b} = {numero_a + numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    elif operacion == "resta": # Comparacion de si la variable operacion es igual a resta realiza la operacion de abajo
+        print(f"{numero_a} - {numero_b} = {numero_a - numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    elif operacion == "multi": # Comparacion de si la variable operacion es igual a multi realiza la operacion de abajo
+        print(f"{numero_a} * {numero_b} = {numero_a * numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    elif operacion == "division": # Comparacion de si la variable operacion es igual a division realiza la operacion de abajo
+        print(f"{numero_a} / {numero_b} = {numero_a / numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    elif operacion == "divi_entera": # Comparacion de si la variable operacion es igual a division entera realiza la operacion de abajo
+        print(f"{numero_a} // {numero_b} = {numero_a // numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    elif operacion == "expo": # Comparacion de si la variable operacion es igual a exponencial realiza la operacion de abajo
+        print(f"{numero_a} ** {numero_b} = {numero_a ** numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings   
+    elif operacion == "modulo": # Comparacion de si la variable operacion es igual a modulo realiza la operacion de abajo
+        print(f"{numero_a} % {numero_b} ={numero_a % numero_b}") # (f"{}") -> Cambia el formato de lo que hay entre corchetes a numeros  manteniendo el resto en las comillas como strings
+    else: # si no cumple con ninguno de los casos anteriores haz lo que pone
         print("No se puede hacer")
-except ValueError:
+except ValueError: # ValueError indica que si el valor introducido por el usuario no es del tipo indicado de el siguiente mensaje
     print("Introduce un numero en Cifras")
-except ZeroDivisionError:
+except ZeroDivisionError: # ZeroDivisionError  indica que si el valor introducido por el usuario es 0 a la hora de dividir de el siguiente mensaje
     print("No se puede dividir por Cero")
 finally:
     print("Resultado")
 
-"""
+
 # Solulcion Ferran
-"""
+
 num_1 = input("Escriba el primer numero -> ")
 # provar "1", "1.2", "uno", "??"
 if num_1.isalpha(): # Comprobacion que el dato introducido es caracter o numerico isalpha incluye caracteres y simbolos = true
@@ -177,8 +177,7 @@ try:
     #   expo
     #   divi_entera
     #   modulo
-    
-"""
+    """)
     op = input("¿Que operacion quieres realizar?")
 
     if op == "suma":
@@ -199,17 +198,17 @@ except ValueError:
     print("Has de describir un numero en cifra")
 except ZeroDivisionError:
     print("No se puede dividir entre cero")
-"""
+
 
 # Calculadora a base de mathc
 
 import os
 os.system("clear")
-"""
+
 try:
     numero_a = float(input("Introduce un Numero: "))
     numero_b = float(input("Introduce un Numero: "))
-    print"""("""
+    print("""
     Operaciones:
         suma
         resta
@@ -219,7 +218,7 @@ try:
         divi_entera
         modulo
     """)
-"""
+
     op = input("¿Que operacion quieres realizar?")
     match operacion: 
         case "suma":
@@ -242,10 +241,9 @@ except ValueError:
     print("Introduce un numero en Cifras")
 except ZeroDivisionError:
     print("No se puede dividir por Cero")
-finally:
-    return 0
-"""
-# Preguntar al usuario que dia de la se mana es:
+
+
+# Preguntar al usuario que dia de la se mañana es:
 # si dice lunes toca sistemas
 # si dice martes miercoles jueves o viernes toca programacion
 # si dice sabado domingo descansa coño
@@ -262,4 +260,3 @@ match dia:
         print("Es fin de semana.")
     case _:
         print("Creo que estas confundido.")
-return 0
