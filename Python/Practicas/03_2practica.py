@@ -29,3 +29,8 @@ texto2 = texto1.split(" ") # transforma en lista el texto usando los espacios en
 print(texto2) # Muestra en pantalla
 #texto3 = texto2.sorted(reverse=True) # coge la lista y la invierte .sort() es organizar y (reverse=True) lo invierte
 #print(texto3)
+
+
+
+# Preguntale al usuario un mumero y dile si es par o inpar
+num=input("Dime un numero: ")
