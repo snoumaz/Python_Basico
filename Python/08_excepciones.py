@@ -22,15 +22,12 @@ except: # Error generico
 
 print("El programa continua ...")
 
-try:
-    #intentar algo
+try: # intentar algo
     pass
-except:
-    # si falla ejecuta esto
+except: # si falla ejecuta esto
     pass
-else:
+else: #
     # si no falla ejecuta esto
     pass
-finally:
-    # se ejecuta siempre
+finally: # si no falla ejecuta esto
     pass

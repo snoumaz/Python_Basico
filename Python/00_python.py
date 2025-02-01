@@ -21,9 +21,9 @@ ejemplo_comilla_triple = """
 # print(numero_decimal)
 print(ejemplo_comilla_triple)
 
-from datetime import datetime
+from datetime import datetime # importamos la clase datetime
 
-print(datetime.now())
+print(datetime.now()) # imprime la fecha y hora actual
 
 print("numero_entero es de tipo", type(numero_entero)) # averigua el tipo, pero no imprime en pantalla
 
@@ -32,44 +32,44 @@ verdad = True
 mentira = False
 
 # Operaciones basicas son 7
-suma = 1 + 7
+suma = 1 + 7 # operacion suma
 print(suma)
 
-suma = 4 + 8
-
-resta = 1 - 4
+resta = 1 - 4 # operacion resta
 print(resta)
 
-multiplicacion = 4 * 2
+multiplicacion = 4 * 2 # operacion multiplicacion
 print(multiplicacion)
 
-division = 10 / 3
+division = 10 / 3 # operacion division
 print(division)
 
-exponecial = 2 ** 3
+exponecial = 2 ** 3 # operacion exponente
 print(exponecial)
 
 exponecial = 50 ** 0.5 # raiz cuadrada
 print(exponecial)
 
-division_entera = 20 // 3
+division_entera = 20 // 3 # operacion division entera (trunca la parte decimal)
 print(division_entera)
 
-modulo = 20 % 3
+modulo = 20 % 3 # operacion modulo (resto de la division entera)
 print(modulo)
 
-modulo = 9280129399 % 2
+modulo = 9280129399 % 2 # operacion modulo (resto de la division entera)
 print(modulo)
 
-
+# Operaciones de prioridad por parentesis ( )
 texto1 = "Hola"
 texto2 = "Mundo"
 texto_final = texto1 + " " + texto2
 print(texto_final)
 
+# Utilizando f-string
 texto_final = f"{texto1} {texto2}"
 print(texto_final)
 
+# Utilizando la funcion format()
 texto_final = "{} {}".format(texto1, texto2)
 print(texto_final)
 

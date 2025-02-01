@@ -59,15 +59,15 @@ else:
 # si dice sabado domingo descansa coño
 # si dice otra cosa Creo que estas confundido
 
-dia = input("Que dia de la semana estamos: ")
-dia = dia.lower()
-match dia:
-    case "lunes":
-        print("Hoy toca sistemas.")
-    case "martes" | "miercoles" | "jueves" | "viernes":
+dia = input("Que dia de la semana estamos: ") # Solicita el día de la semana
+dia = dia.lower() # Convierte entrada a minúsculas para estandarizar
+match dia: # Estructura de control match para evaluar el día
+    case "lunes": # Caso específico para lunes muestra el mensaje correspondiente
+        print("Hoy toca sistemas.") 
+    case "martes" | "miercoles" | "jueves" | "viernes": # Casos para días laborables muestra el mensaje correspondiente
         print("Hoy toca Python.")
-    case "sabado" | "domingo":
+    case "sabado" | "domingo": # Casos para fin de semana muestra el mensaje correspondiente
         print("Es fin de semana.")
-    case _:
+    case _: # Caso por defecto muestra el mensaje correspondiente
         print("Creo que estas confundido.")
     
