@@ -42,7 +42,7 @@ print(lista_num)
 
 # Eliminar una posicion concreta --> del[posicion]
 print(lista_mixta)
-del lista_mixta[2]
+del lista_mixta[2] # elimina solo la primera que concuerde con el valor que se encuentra 
 print(lista_mixta)
 
 # Eliminar un elemento por valor
