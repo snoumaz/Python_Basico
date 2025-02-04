@@ -50,3 +50,12 @@ print(lista_nombres)
 lista_nombres.remove("Pol") # elimina solo la primera que concuerde
 print(lista_nombres)
 
+# Unir 2 listas
+lista_1 = [0, 1, 2]
+lista_2 = [3, 4, 5]
+lista_1.extend(lista_2) # concatenacion, modifica la variable que se extienda
+lista_1 = lista_1 + lista_2 # concatenacion, modifica la variable que se extienda
+lista_1 += lista_2 # concatenacion, modifica la variable que se extienda
+print(lista_1)
+
+
