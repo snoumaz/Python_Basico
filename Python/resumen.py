@@ -8,7 +8,8 @@ Resumen simplificado de lo esencial
 
 # Varible
 # es un contenedor de elementos
-# es un indentificador para ubicar elmentos guardado en la memoria
+# es un indentificador para ubicar elmentos guardado en la memoriasphinx-quickstart
+
 
 # La variable siempre se declaran antes de ser utilizadas
 # tambien deben ser iniciadas
