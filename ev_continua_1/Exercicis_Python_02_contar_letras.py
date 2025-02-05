@@ -49,10 +49,36 @@ Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
 . 
 """
 
-texto = input("Por favor, introduzca un texto: \n")
+texto = input("Por favor, introduzca un texto: \n") # Pedimos el texto al usuario
+ignorar = " .,;:!¡¿?()[]{}\"'<>-_*/\n\t1234567890" # Variable con caracteres a ignorar
 
-# Eliminamos los signos de puntuación y los espacios
-texto = texto.split(" ", ",", ".", "!", "¿", "?", "¡", ";", ":", '"', "'", '/', "$", "|", "%", "&", "(", ")", "[", "]", "{", "}", "-", "_" )
-lista_letras = []
-lista_cantidad = []
-lista_conjunta = [lista_letras,lista_cantidad]
+texto_limpio = "" # Variable para almacenar el texto limpio
+for caracter in texto: # Recorremos cada caracter del texto
+    if caracter not in ignorar: # Si el caracter no está en ignorar, lo añadimos al texto limpio
+        texto_limpio += caracter.lower() # Convertimos el caracter a minúsculas
+
+letras = [] # Lista para almacenar las letras
+cantidades = [] # Lista para almacenar las cantidades
+
+
+for letra in texto_limpio: # Recorremos cada letra del texto limpio
+    if letra in letras: # Si la letra ya está en la lista, incrementamos su conteo
+        indice = letras.index(letra) # Obtenemos el índice de la letra en la lista
+        cantidades[indice] += 1 # Incrementamos el conteo
+    else:
+        letras.append(letra) # Añadimos la letra a la lista
+        cantidades.append(1) # Añadimos el conteo
+
+# Ordenamos por número de apariciones y luego alfabéticamente (burbuja)
+for i in range(len(cantidades) - 1): # Recorremos las letras y cantidades
+    for j in range(len(cantidades) - 1 - i): # Recorremos las letras y cantidades
+        if cantidades[j] < cantidades[j + 1] or (cantidades[j] == cantidades[j + 1] and letras[j] > letras[j + 1]): # Si las cantidades son distintas o las cantidades son iguales y la letra anterior es mayor que la letra actual, intercambiamos
+            # Intercambiar cantidades
+            cantidades[j], cantidades[j + 1] = cantidades[j + 1], cantidades[j] # Intercambiar cantidades
+            # Intercambiar letras
+            letras[j], letras[j + 1] = letras[j + 1], letras[j] # Intercambiar letras
+
+# Mostramos el resultado
+print("\nEl texto contiene las letras:")
+for i in range(len(letras)): # Mostramos cada letra y su cantidad
+    print(f"{letras[i]}, {cantidades[i]} ")
