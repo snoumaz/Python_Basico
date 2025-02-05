@@ -48,3 +48,8 @@ Mostraremos el texto: "Contar palabras en un texto"
 Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
 . 
 """
+
+texto = input("Por favor, introduzca un texto: \n")
+
+# Eliminamos los signos de puntuación y los espacios
+texto = texto.split(" ", ",","." )

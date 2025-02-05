@@ -28,7 +28,10 @@ Exercicis Python Bàsic 5/2/2025
 # Idea de como realizar el ejercicio
 
 #for num in range(2, primo):
+import os                                                           # <= Importamos la libreria OS
+os.system("cls")                                                    # <= Solicitamos que realice primero el comando cls = limpiar la terminal
 
+# Bucle que comprueba que el elemento introducido por el usuario es un numero entero y solo puede equivocarse 3 veces.
 intentos = 0                                                        # <= Variable que guarda el numero de intentos
 while intentos < 3:                                                 # <= Bucle que llega asta 3 intentos
     
@@ -44,6 +47,7 @@ while intentos < 3:                                                 # <= Bucle q
         print("""No has podido introducir un número entero en tres oportunidades
 Puedes volverlo a intentar de nuevo ejecutando otra vez esta aplicación.""")
     
+# Bucle que revisa que el numero facilitado por el usuario es primo o no.
 es_primo = True                                                     # <- Crea variable es_primo dandole valor true
 for primo in range(2, num):                                         # <- Crea un bucle que compara la variable primo en el rango desde 2 al a la variable num
     if num % primo == 0:                                            # <- Si el numero num es divisible por algun numero primo entre 2 y num-1 entonces es_primo es False
