@@ -56,7 +56,4 @@ for primo in range(2, num):                                         # <- Crea un
         break      
 if es_primo:                                                        # <- Si es_primo es True entonces imprime el mensaje
         print(f"El número {num} es primo")
-               
-  
-    
-
+ 
