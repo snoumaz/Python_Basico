@@ -1,6 +1,6 @@
 #Match = SWITCH
 #
-"""
+
 mes = "Enero"
 
 match mes:  #segun el valor que tenga mes haremos algo
@@ -12,11 +12,11 @@ match mes:  #segun el valor que tenga mes haremos algo
         print("Iré a Egipto")                        #no hay default pero hay (case _ :), se ejecuta cuando no es ninguna de las otras, es como el else en if/else
     case _ :
         print("Nose donde iré")
-"""
+
 
 #import os
 #os.system("cls")
-"""
+
 try:                                    #Porque se puede roducir una excepcion a causa del input del usuario
     n1 = float(input("numero 1? "))     #con float() aqui forzamos error si no se introducen numeros y lidiamos con ellos con los except
     n2 = float(input("numero 2? "))     #
@@ -43,7 +43,7 @@ except ValueError:                                  #si se pone un try hay que p
     print("tienes que introducir un numero valido en cifras")
 except ZeroDivisionError:
     print("no se puede dividir por 0")
-"""
+
 
 #Ejercicio: 
 #Preguntar al ususario que dia de la semana es (lunes, martes...)
@@ -52,7 +52,7 @@ except ZeroDivisionError:
 #Sabado, Domingo: "Es fin de semana"
 #Otra cosa: "Creo que estas confundido"
 
-"""
+
 dia = input("que dia es? ")
 dia = dia.lower()                           #porque los case son todos en minuscula, por si el usuario introduce alguna mayuscula
 match dia:
@@ -64,8 +64,7 @@ match dia:
         print("toca descansar")
     case _ :
         print("creo que estas confundido")
-"""
-"""
+
 #print("solucion 3")
 try:
     respuesta = input("Indique la operacion a realizar:\nEjemplo: 10, 5, +\n").split(", ")
@@ -86,12 +85,12 @@ except ZeroDivisionError:
     print("no se puede dividir por 0")
 
 print(eval("1 + 2"))    #3
-"""
+
 
 #Ejercicio PALINDROMOS
 #obviar/ignorar mayusculas y espacios
 #que el ususario pueda escribir algo y comprobar si es palindromo
-"""
+
 pal=input("Escribe una frase: ")
 pal=pal.lower()         #pasa a minusculas 
 pal=pal.strip()         #quita esacios exteriores (____de____)
@@ -104,8 +103,7 @@ if pal==palneg:
     print("es un plaindromo")
 else:
     print("no es un palindromo")
-"""
-"""
+
 #pregunta un numero y que te diga si es par o impar
 num=float(input("numero? "))
 
@@ -113,4 +111,3 @@ if num % 2 == 0:
     print("es par")
 else:
     print("no es par")
-"""

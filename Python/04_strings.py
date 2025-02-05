@@ -7,7 +7,7 @@ String - Cadenas de texto
 #Str3 = """hola3"""
 
 #print(Str1 + " " + Str2 + " " + Str3)
-"""
+
 #print("nombre?")
 nombre = input("Nombre? ")
 #print(type(nombre))
@@ -117,4 +117,3 @@ print(palabras)
 print(len(palabras))
 frase2=" ".join(palabras)       #le vuelve a poner los espacios
 print(frase2)
-"""
