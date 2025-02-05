@@ -7,7 +7,7 @@ edades = [25, 30, 35, 40, 45, 28, 24, 75, 89, 234, 2]
 
 check = 2
 suma = 0
-"""
+
 for nums in edades:
     if str(nums).startswith(str(check)): # str(nums) => convierte en string 
         # .startswith(str(check)) => busca la primer digito y lo comprara con la conversion string de check 
@@ -53,6 +53,7 @@ print(list(range(10)))
 
 for num in range(10):
     print(num, end=" ")
-"""    
+   
 for index in range(len(nombres)):
     print(f"{index + 1} {nombres[index]}")
+""" """ 
