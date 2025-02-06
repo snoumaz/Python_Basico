@@ -25,3 +25,11 @@ Otro ejemplo:
  
 """
 
+print("Anagrama")
+texto1 = input("Introduzca el primer texto: ").lower().replace(" ", "")
+
+texto2 = input("Introduzca el segundo texto: ").lower().replace(" ", "")
+
+
+if (b > else c):
+    print

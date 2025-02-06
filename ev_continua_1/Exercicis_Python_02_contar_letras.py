@@ -42,11 +42,11 @@ v, 1 vez
 y, 1 vez
 "
 
-Ejercicio 2b
+# Ejercicio 2b
 
-Mostraremos el texto: "Contar palabras en un texto"
-Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
-. 
+# Mostraremos el texto: "Contar palabras en un texto"
+# Lo mismo que el ejercicio anterior, pero con palabras en lugar de letras.
+# . 
 """
 
 texto = input("Por favor, introduzca un texto: \n")
