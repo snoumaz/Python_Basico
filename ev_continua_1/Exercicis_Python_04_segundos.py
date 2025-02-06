@@ -18,4 +18,18 @@ Lo mismo si supera un día o una semana.
 
 . 
 """
+import os
+os.system("cls")
+secs = 60
+mins = 60
+horas = 24
+dias = 7
+mes = 4
+año = 12 
+print("Conversor de segundos\n")
+try:
+    segundos=int(input("Dime una cantidad de segundos a convertir: \n"))
+    
 
+except ValueError:
+    print("Solo son validos numeros")
