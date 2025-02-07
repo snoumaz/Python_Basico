@@ -27,34 +27,34 @@ try: # Prueba y captura de errores
     segundos = int(input("Dime una cantidad de segundos a convertir: \n")) # Introduce una cantidad de segundos a convertir
 
     # Definición de unidades de tiempo en segundos
-    segundos_minuto = 60 # variable segundos_minuto es igual a 60
-    segundos_hora = segundos_minuto * 60 # variable segundos_hora es igual a segundos_minuto por 60
-    segundos_dia = segundos_hora * 24 # variable segundos_dia es igual a segundos_hora por 24
-    segundos_semana = segundos_dia * 7 # variable segundos_semana es igual a segundos_dia por 7
-    segundos_mes = segundos_dia * 30  # variable segundos_mes es igual a segundos_dia por 30.44
-    segundos_año = segundos_dia * 365 # variable segundos_año es igual a segundos_dia por 365
+    segundos_minuto = 60                                                # variable segundos_minuto es igual a 60
+    segundos_hora = segundos_minuto * 60                                # variable segundos_hora es igual a segundos_minuto por 60
+    segundos_dia = segundos_hora * 24                                   # variable segundos_dia es igual a segundos_hora por 24
+    segundos_semana = segundos_dia * 7                                  # variable segundos_semana es igual a segundos_dia por 7
+    segundos_mes = segundos_dia * 30                                    # variable segundos_mes es igual a segundos_dia por 30.44
+    segundos_año = segundos_dia * 365                                   # variable segundos_año es igual a segundos_dia por 365
 
     # Conversión de segundos a semanas, días, horas, minutos y segundos restantes
-    años = segundos // segundos_año # variable años es igual a segundos dividido por segundos_año
-    segundos %= segundos_año # variable segundos es igual a segundos modulo segundos_año
+    años = segundos // segundos_año                                     # variable años es igual a segundos dividido por segundos_año
+    segundos %= segundos_año                                            # variable segundos es igual a segundos modulo segundos_año
 
-    meses = segundos // segundos_mes # variable meses es igual a segundos dividido por segundos_mes
-    segundos %= segundos_mes # variable segundos es igual a segundos modulo segundos_mes
+    meses = segundos // segundos_mes                                    # variable meses es igual a segundos dividido por segundos_mes
+    segundos %= segundos_mes                                            # variable segundos es igual a segundos modulo segundos_mes
 
-    semanas = segundos // segundos_semana # variable semanas es igual a segundos dividido por segundos_semana
-    segundos %= segundos_semana # variable segundos es igual a segundos modulo segundos_semana
+    semanas = segundos // segundos_semana                               # variable semanas es igual a segundos dividido por segundos_semana
+    segundos %= segundos_semana                                         # variable segundos es igual a segundos modulo segundos_semana
 
-    dias = segundos // segundos_dia # variable dias es igual a segundos dividido por segundos_dia
-    segundos %= segundos_dia # variable segundos es igual a segundos modulo segundos_dia
+    dias = segundos // segundos_dia                                     # variable dias es igual a segundos dividido por segundos_dia
+    segundos %= segundos_dia                                            # variable segundos es igual a segundos modulo segundos_dia
 
-    horas = segundos // segundos_hora # variable horas es igual a segundos dividido por segundos_hora
-    segundos %= segundos_hora # variable segundos es igual a segundos modulo segundos_hora
+    horas = segundos // segundos_hora                                   # variable horas es igual a segundos dividido por segundos_hora
+    segundos %= segundos_hora                                           # variable segundos es igual a segundos modulo segundos_hora
 
-    minutos = segundos // segundos_minuto # variable minutos es igual a segundos dividido por segundos_minuto
-    segundos %= segundos_minuto # variable segundos es igual a segundos modulo segundos_minuto
+    minutos = segundos // segundos_minuto                               # variable minutos es igual a segundos dividido por segundos_minuto
+    segundos %= segundos_minuto                                         # variable segundos es igual a segundos modulo segundos_minuto
 
     # Construcción del mensaje de salida
-    resultado = str(segundos) + " segundos son " # variable resultado es un string y es igual a segundos mas "segundos son"
+    resultado = str(segundos) + " segundos son "                        # variable resultado es un string y es igual a segundos mas "segundos son"
 
     if años > 0: # condición si años es mayor que 0
         resultado += str(años) + " año" + ("s" if años > 1 else "") + ", " # resultado es igual a resultado mas años mas "año" si años es mayor que 1 si no es ""
@@ -71,7 +71,7 @@ try: # Prueba y captura de errores
 
     resultado += str(segundos) + " segundo" + ("s" if segundos != 1 else "") # resultado es igual a resultado mas segundos mas "segundo" si segundos es diferente de 1 si no es ""
 
-    print(resultado) # imprime resultado
+    print(resultado)                                                    # imprime resultado
 
 except ValueError:
     print("Solo son válidos números.")
