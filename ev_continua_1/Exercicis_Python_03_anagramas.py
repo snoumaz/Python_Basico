@@ -77,11 +77,11 @@ else:
             if lista_texto1[indice_actual] > lista_texto1[indice_comparacion]:      # Si el elemento actual es mayor que el elemento de comparación
                 temp = lista_texto1[indice_actual]                                  # Intercambia los elementos
                 lista_texto1[indice_actual] = lista_texto1[indice_comparacion]      # Intercambia los elementos
-                lista_texto1[indice_comparacion] = temp                             # Intercambia los elementos
+                lista_texto1[indice_comparacion] = temp                             # Intercambia los elementos mete el valor de la variable temp en la posición de la lista_texto1[indice_comparacion] que se ha guardado en la variable temp
             if lista_texto2[indice_actual] > lista_texto2[indice_comparacion]:      # Si el elemento actual es mayor que el elemento de comparación
                 temp = lista_texto2[indice_actual]                                  # Intercambia los elementos               
                 lista_texto2[indice_actual] = lista_texto2[indice_comparacion]      # Intercambia los elementos
-                lista_texto2[indice_comparacion] = temp                             # Intercambia los elementos          
+                lista_texto2[indice_comparacion] = temp                             # Intercambia los elementos mete el valor de la variable temp en la posición de la lista_texto2[indice_comparacion] que se ha guardado en la variable temp   
             indice_comparacion += 1                                                 # Incrementa el índice de comparación
         indice_actual += 1                                                          # Incrementa el índice actual             
 
