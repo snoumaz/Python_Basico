@@ -87,6 +87,6 @@ else:
 
     # Comparar listas ordenadas
     if lista_texto1 == lista_texto2:                                                # Si las listas son iguales
-        print("Son anagramas --> Sí")
+        print("Si son anagramas")
     else:
-        print("Son anagramas --> No")
+        print("No son anagramas")                                                   # Si las listas no son iguales
