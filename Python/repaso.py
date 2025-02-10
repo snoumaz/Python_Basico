@@ -1,4 +1,4 @@
-# Este proyecto es de practica para rememorar los conceptos básicos de Python.
+# Este proyecto es de practica para rememorar los conceptos básicos de Python. o
 
 # Variables de diferentes tipos de datos, operaciones y métodos de comparación, conversión y manipulación de cadenas / strings y listas
 
