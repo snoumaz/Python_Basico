@@ -58,17 +58,20 @@ X. Salir
     match opcion:
         case "1":
             new_user = input("Nuevo usuario --> ").strip().title()
-            
             if users:
-                user_in_list = 0
+                user_in_list = []
                 for user in users:
-                    if user['nombre'] != new_user:
-                        user_dic = {"nombre":new_user, "visitas": 0 }
-                        users.append(user_dic)
-                        print(f"Usuario {new_user} añadido")
-                        break
-                    else:
-                        print("El usuario ya existe")
+                    user_in_list.append(user['nombre'])                    
+                if new_user not in user_in_list:
+                    user_dic = {"nombre":new_user, "visitas": 0 }
+                    users.append(user_dic)
+                    print(f"Usuario {new_user} añadido")
+                else:
+                    print("El usuario ya existe")
+            else:
+                user_dic = {"nombre":new_user, "visitas": 0 }
+                users.append(user_dic)
+                print(f"Usuario {new_user} añadido") 
         case "2":       
             # if users:
             #     user = input("Usuario --> ").strip().title()
