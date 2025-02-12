@@ -73,28 +73,32 @@ X. Salir
                 users.append(user_dic)
                 print(f"Usuario {new_user} añadido") 
         case "2":       
-            # if users:
-            #     user = input("Usuario --> ").strip().title()
-            #     for user in users:
-            #         if user['nombre'] == user:
-            #             user['visitas'] += 1
-            #             print("Visita añadida")
-            #         else:
-            #             print("El usuario no existe")
-            # else:
-            #     print("No hay usuarios todavía")
-            pass
+            if users:
+                nombre_usuario = input("Usuario --> ").strip().title()
+                encontrado = False
+                for user in users:
+                    if user['nombre'] == nombre_usuario:
+                        user['visitas'] += 1
+                        print(f"Visita añadida a {user['nombre']}")
+                        encontrado = True
+                        break
+                if not encontrado:
+                    print("El usuario no existe")
+            else:
+                print("No hay usuarios todavía")
         case "3":
-            # if users:
-            #     user = input("Usuario --> ").strip().title()
-            #     for user in users:
-            #         if user['nombre'] == user:
-            #             print(f"El usuario {user['nombre']} ha tenido {user['visitas']} visitas")
-            #         else:
-            #             print("El usuario no existe")
-            # else:
-            #     print("No hay usuarios todavía")
-            pass
+            if users:
+                nombre_usuario = input("Usuario --> ").strip().title()
+                encontrado = False
+                for user in users:
+                    if user['nombre'] == nombre_usuario:
+                        print(f"El usuario {user['nombre']} ha visitado {user['visitas']} veces")
+                        encontrado = True
+                        break
+                if not encontrado:
+                    print("El usuario no existe")
+            else:
+                print("No hay usuarios todavía")
         case "4":
             if users:
                 print(users)
@@ -105,5 +109,3 @@ X. Salir
             break
         case _ :
             print("Opción no reconocida.\nVuélvelo a probar.")
-
-print(users)
