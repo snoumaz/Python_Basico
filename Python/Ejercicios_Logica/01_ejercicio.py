@@ -12,8 +12,6 @@ Pero...
 """
 import os
 
-
-
 try:
     numero = int(input("Introduce un numero del 1 al 100: \n")) 
     os.system("cls")
