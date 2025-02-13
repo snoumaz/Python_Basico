@@ -1,9 +1,10 @@
 """
 FUNCIONES
+Definición o función es un bloque de código que se ejecuta cuando se le llama o invoca, puede recibir parámetros y devolver un resultado
 """
 
 # Declaración 1
-def sumar () :
+def sumar () : 
     print(1 + 2)
 
 # Invocación
