@@ -1,6 +1,7 @@
 """
 FUNCIONES
 Definición o función es un bloque de código que se ejecuta cuando se le llama o invoca, puede recibir parámetros y devolver un resultado
+Las funciones se definen antes de usarla
 """
 
 # Declaración 1
@@ -60,3 +61,11 @@ def sumar(*argv) :
 sumar(1,2)
 sumar(3,4,5)
 sumar(3,7,907)
+
+
+var = "algo"
+print(id(var))
+
+lista = [1,2,3]
+def cuadrados(lista_numeros):
+    return[x**2 for x in lista_numeros]

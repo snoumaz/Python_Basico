@@ -58,4 +58,12 @@ lista_1 = lista_1 + lista_2 # concatenacion, modifica la variable que se extiend
 lista_1 += lista_2 # concatenacion, modifica la variable que se extienda
 print(lista_1)
 
+# las listas comprimida
+lista_vacia = []
+lista = [x ** 2 for x in lista_vacia]
+
+lista_temp =[]
+for x in lista:
+    lista_temp.append(x **2)
+return lista_temp:
 

@@ -58,4 +58,12 @@ while True: # mientras no se pulse la tecla intro
         print("No hay cash")
         break
 
+# while es un bucle y comprara el valor el booleano
+test = 1
+while test:
+    if test >=1:
+        print("es mayor")
+    else:
+        print("fin")
+
     
