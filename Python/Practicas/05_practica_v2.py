@@ -41,7 +41,10 @@ while True:
     except ValueError:
         print("Has de introducir un número entero.\n")
 
-contador_games = 0 #Crea una variable que contendra el numero de partidas
+win = 0
+lost = 0
+draw = 0
+contador_games = 1 #Crea una variable que contendra el numero de partidas
 while contador_games<= games:
     contador_games +=1
     # Menu del juego
@@ -51,9 +54,9 @@ while contador_games<= games:
 
     Selecciona 1 de las 3 opciones para jugar:
 
-    1.- {lista[0]} {opciones_juego[0]}
-    2.- {lista[1]} {opciones_juego[1]}
-    3.- {lista[2]} {opciones_juego[2]}
+    \t1.- {lista[0]} {opciones_juego[0]}
+    \t2.- {lista[1]} {opciones_juego[1]}
+    \t3.- {lista[2]} {opciones_juego[2]}
 
     En caso de no querer jugar o salir del juego pulsa qualquier tecla
     fuera de las 3 opciones.
@@ -79,14 +82,17 @@ while contador_games<= games:
 
     #def juego():
     if opcion_user == opcion_pc: # Compara la variable opcion_user y opcion_pc si son iguales ejecuta el codigo
-        print(f"{name} ha sido un empate😒😒") # Muestra en pantalla el mensaje
+        print(f"{name} ha sido un empate😒😒") 
+        draw +=1# Muestra en pantalla el mensaje
     elif (opcion_user == "1" and opcion_pc == "3") \
         or (opcion_user == "2" and opcion_pc == "1") \
         or (opcion_user == "3" and opcion_pc == "2"): # Si en caso de que una de estas comparaciones se cumpla ejecuta el codigo
         print(f"🎉🎉¡¡¡{name} has ganado!!!🎉🎉") # Muestra el mensaje
+        win +=1
     else: # Si no es ninguna de las opciones anteriores ejecuta codigo
         print(f"😿😿¡¡¡{name} has perdido!!!😿😿") # Muestra el mensaje
+        lost +=1
 
 
-print("Juego finalizado")
+print(f"Juego finalizado\n{name} has ganado {win}, has perdido {lost} y habeis empatado {draw}")
 
