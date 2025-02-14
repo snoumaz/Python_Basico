@@ -19,61 +19,105 @@ En cualquier momento hay que poder finalizar
 el proceso sin que se produzca la compra
 
 """
-import datetime
 import os
 
-# Variables globales
+def limpiar_pantalla():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+# Definición de tarifas
+tarificacion = {
+    "estandar": 9.00,
+    "senior": 6.90,
+    "child": 7.20
+}
 
-tarificacion = {"standar": 9.00 ,"senior":6.90,"child":7.20,"reduce":5.00}
-#print(type(senior))
-# tarifas = f"""¡¡Welcome a los Cines Ferran!!
+def mostrar_menu():
+    menu = "\n¡Bienvenido a los Cines Ferran!\n"
+    menu += "\nPrecios de las entradas:"
+    for clase, valor in tarificacion.items():
+        menu += f"\n{clase[0].upper()} - {clase.capitalize()}: {valor:.2f} €"
+    menu += "\n\nF - Finalizar la compra"
+    menu += "\nX - Salir sin comprar"
+    menu += "\n\nElija el tipo de entrada (E/S/C/F/X): "
+    return menu
 
-# Tarifa de precios:
-
-# Adultos {standar}
-# Niños {child}
-# Mayores {senior}
-
-# Dia del espectador todos a {reduce}
-
-# """
-# print(tarifas)
-
-menu = "Precios de las entradas"
-for clase, valor in tarificacion.items():
-        menu += f"\n{clase[0].upper()} {clase.capitalize()} : {valor:.2f} €"
-
-        menu += "\n\nF. Finalizar la compra"
-        menu += "\nX. Salir sin comprar"
-        menu += "\n\nElija el tipo de entrada."
-        menu += "\nA continuacion podra indicar la cantidad.\n>>>"
-
-        eleccion_entrada = input(menu).lower().strip()
-else:
-    print("Opcion incorrecta.")
-# adulto = input("¿Cuantos adultos son?\n")
-# niño = input("¿Cuantos niños/as son?\n")
-# mayores = input("¿Cuantos mayores a 65 son?\n")
-
-def calculo () :
-    if key in tarificacion:
-        key = tarificacion.values(clave)
-        resultado = float(adulto)*key
-    return resultado
+def procesar_compra():
+    entradas = {"estandar": 0, "senior": 0, "child": 0}
+    total = 0
     
-# def calculo_niño ():
-#     if key in tarificacion:
-#         key = tarificacion.values("child")
-#         r_niños = float(niño)*key
-#     return r_niños
-                      
-# def calculo_mayores () :
-#     if key in tarificacion:
-#         key = tarificacion.values("senior")
-#         r_mayores = float(mayores)*key
-#     return r_mayores
+    while True:
+        limpiar_pantalla()
+        opcion = input(mostrar_menu()).lower().strip()
+        
+        if opcion == 'x':
+            return None
+        elif opcion == 'f':
+            if entradas["child"] > 0 and entradas["estandar"] == 0:
+                print("\n¡Error! Los niños deben ir acompañados de al menos un adulto.")
+                input("\nPresione Enter para continuar...")
+                continue
+            break
+        
+        tipo_entrada = None
+        if opcion == 'e':
+            tipo_entrada = "estandar"
+        elif opcion == 's':
+            tipo_entrada = "senior"
+        elif opcion == 'c':
+            tipo_entrada = "child"
+        
+        if tipo_entrada:
+            try:
+                cantidad = int(input(f"\nCantidad de entradas {tipo_entrada}: "))
+                if cantidad >= 0:
+                    entradas[tipo_entrada] += cantidad
+                else:
+                    print("\nPor favor, ingrese un número positivo.")
+                    input("\nPresione Enter para continuar...")
+            except ValueError:
+                print("\nPor favor, ingrese un número válido.")
+                input("\nPresione Enter para continuar...")
+        else:
+            print("\nOpción no válida.")
+            input("\nPresione Enter para continuar...")
+    
+    return entradas
 
-# # def espectador ():
-#     if 
+def mostrar_resumen(entradas):
+    total = 0
+    limpiar_pantalla()
+    print("\nResumen de su compra:")
+    print("-" * 30)
+    
+    for tipo, cantidad in entradas.items():
+        if cantidad > 0:
+            subtotal = cantidad * tarificacion[tipo]
+            total += subtotal
+            print(f"{tipo.capitalize()}: {cantidad} x {tarificacion[tipo]:.2f}€ = {subtotal:.2f}€")
+    
+    print("-" * 30)
+    print(f"Total a pagar: {total:.2f}€")
+    return total
+
+# Ejecución principal del programa
+while True:
+    entradas = procesar_compra()
+    
+    if entradas is None:
+        print("\n¡Gracias por su visita!")
+        break
+    
+    total = mostrar_resumen(entradas)
+    
+    confirmar = input("\n¿Desea confirmar la compra? (S/N): ").lower().strip()
+    if confirmar == 's':
+        print("\n¡Compra realizada con éxito!")
+        print("¡Disfrute de la película!")
+        break
+    else:
+        print("\nCompra cancelada.")
+        continuar = input("\n¿Desea realizar otra compra? (S/N): ").lower().strip()
+        if continuar != 's':
+            print("\n¡Gracias por su visita!")
+            break
 
