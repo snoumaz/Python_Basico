@@ -28,25 +28,25 @@ name = input("Como te llamas? \n").lower().capitalize() # solicitamos el nombre 
 print(f"¡Buena Suerte {name}!")
 
 # Ciclo para la cantidad de partidas que quiere jugar el usuario 
-while True:
-    try:
-        games = int(input("¿Cuantas partidas quieres jugar entre 1 y 5?\n0 para salir\n").strip())
-        if games == 0:
+while True: # Crea un bucle para que el usuario pueda jugar varias veces
+    try: # Prueba 
+        games = int(input("¿Cuantas partidas quieres jugar entre 1 y 5?\n0 para salir\n").strip()) # Solicita al usuario que introduzca un numero entero
+        if games == 0: # Si el numero es 0 entonces sale del bucle y termina el programa
             print(f"¡Hasta Pronto {name}!")
             exit()
-        elif 1 <= games <= 5:
+        elif 1 <= games <= 5: # Si el numero es entre 1 y 5 entonces sale del bucle y continua con el programa
             break
-        else:
+        else: # Si el numero es menor que 1 o mayor que 5 entonces muestra un mensaje y repite el bucle para que el usuario vuelva a introducir un
             print(f"{name}, has de introducir un número entre 1 y 5.")
     except ValueError:
         print("Has de introducir un número entero.\n")
 
-win = 0
-lost = 0
-draw = 0
+win = 0 # Contador de partidas ganadas
+lost = 0 # Contador de partidas perdidas
+draw = 0 # Contador de partidas empatadas
 contador_games = 1 #Crea una variable que contendra el numero de partidas
-while contador_games<= games:
-    contador_games +=1
+while contador_games<= games: # Crea un bucle que llega asta el numero de partidas que el usuario quiere jugar
+    contador_games +=1 # Incrementamos el contador de partidas
     # Menu del juego
     menu = f"""
     PIERDRA - PAPEL - TIJERAS
