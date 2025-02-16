@@ -18,31 +18,41 @@ y el importe total.
 En cualquier momento hay que poder finalizar 
 el proceso sin que se produzca la compra
 
+Dependiendo el dia de la semana se le aplica dia del espectador
+
 """
 import os
+from datetime import datetime
 
-def limpiar_pantalla():
+def limpiar_pantalla(): # función de limpiar pantalla
     os.system('cls' if os.name == 'nt' else 'clear')
 
 # Definición de tarifas
 tarificacion = {
     "estandar": 9.00,
     "senior": 6.90,
-    "child": 7.20
+    "niños": 7.20
 }
 
-def mostrar_menu():
+def aplicar_descuento_dia_espectador(tarificacion): # funcion que aplica el descuento dependiendo el dia de la semana
+    dia_semana = datetime.now().weekday()
+    # Suponiendo que el día del espectador es el miércoles (día 2)
+    if dia_semana == 2:
+        for tipo in tarificacion:
+            tarificacion[tipo] = 5.00  # Aplicar precio de 5.00€ para todos
+
+def mostrar_menu(): # Funcion que crea el menu
     menu = "\n¡Bienvenido a los Cines Ferran!\n"
     menu += "\nPrecios de las entradas:"
     for clase, valor in tarificacion.items():
         menu += f"\n{clase[0].upper()} - {clase.capitalize()}: {valor:.2f} €"
     menu += "\n\nF - Finalizar la compra"
     menu += "\nX - Salir sin comprar"
-    menu += "\n\nElija el tipo de entrada (E/S/C/F/X): "
+    menu += "\n\nElija el tipo de entrada (E/S/N/F/X): "
     return menu
 
-def procesar_compra():
-    entradas = {"estandar": 0, "senior": 0, "child": 0}
+def procesar_compra(): # Funcion que crea la compra 
+    entradas = {"estandar": 0, "senior": 0, "niños": 0}
     total = 0
     
     while True:
@@ -52,7 +62,7 @@ def procesar_compra():
         if opcion == 'x':
             return None
         elif opcion == 'f':
-            if entradas["child"] > 0 and entradas["estandar"] == 0:
+            if entradas["niños"] > 0 and entradas["estandar"] == 0:
                 print("\n¡Error! Los niños deben ir acompañados de al menos un adulto.")
                 input("\nPresione Enter para continuar...")
                 continue
@@ -63,8 +73,8 @@ def procesar_compra():
             tipo_entrada = "estandar"
         elif opcion == 's':
             tipo_entrada = "senior"
-        elif opcion == 'c':
-            tipo_entrada = "child"
+        elif opcion == 'n':
+            tipo_entrada = "niños"
         
         if tipo_entrada:
             try:
@@ -83,7 +93,7 @@ def procesar_compra():
     
     return entradas
 
-def mostrar_resumen(entradas):
+def mostrar_resumen(entradas): # funcion que calcula el valor de la entradas
     total = 0
     limpiar_pantalla()
     print("\nResumen de su compra:")
@@ -99,8 +109,11 @@ def mostrar_resumen(entradas):
     print(f"Total a pagar: {total:.2f}€")
     return total
 
+# Aplicar descuento si es el día del espectador
+aplicar_descuento_dia_espectador(tarificacion)
+
 # Ejecución principal del programa
-while True:
+while True: 
     entradas = procesar_compra()
     
     if entradas is None:
