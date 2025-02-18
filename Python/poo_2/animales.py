@@ -1,10 +1,10 @@
 """
 Creacion clase
 """
-class Animal():
-    def __init__(self,especie):
+class Animal(): # Plantilla de Animal 
+    def __init__(self,especie): # define un atributo de la clase
         self.especie = especie
-    def __str__(self):
+    def __str__(self): # define un atributo de la clase y lo muestra
         return f"La especie es {self.especie}"       
 
 class Perro(Animal):

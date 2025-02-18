@@ -6,7 +6,7 @@ Para crear una clase usaremos la palabra reservada class
 # Las propiedades de una clase se les llaman atributos
 # Clase = plantilla
 # self hace referencia al objeto que vamos a materalizar
-class Persona():
+class Persona(): # las clase son plantillas de objetos para crear los
     """
     Propiedades de una persona
     """
@@ -14,13 +14,13 @@ class Persona():
     # apellido = None
     # funcion = None
     # Introcir atributos de la clase
-    def __init__(self,nombre,apellido,funcion):
+    def __init__(self,nombre,apellido,funcion): # def __init__ sirve para definir en la clase los atributos de la clase
         self.nombre = nombre
         self.apellido = apellido
         self.funcion = funcion
 
     # "definir los atributos"
-    def __str__(self):
+    def __str__(self): # def __str__ sirve para poder visualizar los valores de la clase
         return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Funcion: {self.funcion}"
         
 # los objetos tienen herencia y se puede transmitir
