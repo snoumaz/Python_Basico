@@ -35,7 +35,7 @@ class Coche(Vehiculo):
     def abrir_maletero(self):
         if self.puertas >=1:
             return f"El maletero del {self.marca} {self.modelo} está abierto"
-
+        
 class Moto(Vehiculo):
     # def __init__(self, marca, modelo, año):
     #     super().__init__(marca, modelo, año)
