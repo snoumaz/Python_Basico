@@ -20,7 +20,7 @@ cliente_1 = Cliente("Anna")
 
 class Cliente(): # Classe Cliente
     def __init__(self,name): # Definimos el constructor de la clase con el atributo name, el atributo self es para definir el resto
-        self.name = name
+        self.name = name # Definimos el atributo name y le asignamos el valor del parámetro name que se pasa al crear una instancia de la clase. 
 
 
 # Creamos la clase Restaurante
@@ -28,9 +28,9 @@ class Cliente(): # Classe Cliente
 class Restaurante(): # Classe Restaurante
     
     def __init__(self,name,type,turn): # Definimos el constructor de la clase con los atributos name, type y turn.  
-        self.name = name
-        self.type = type
-        self.turn = turn
+        self.name = name # Definimos el atributo name y le asignamos el valor del parámetro name que se pasa al crear una instancia de la clase. 
+        self.type = type # Definimos el atributo type y le asignamos el valor del parámetro type que se pasa al crear una instancia de la clase. 
+        self.turn = turn # Definimos el atributo turn y le asignamos el valor del parámetro turn que se pasa al crear una instancia de la clase. 
         self.diccionario_reservas= {} # Creamos el diccionario_reservas vacio, para luego rellenarlo, este dicccionario es un atributo oculto
         for hora in turn:  # Para el valor facilitado por tanto el usuario o si lo definimos lo compara con los datos en turn 
             self.diccionario_reservas[hora]=0 # Rellenamos el diccionario con la clave hora y el valor 0
@@ -40,7 +40,7 @@ class Restaurante(): # Classe Restaurante
             return f"El horario {hora} no esta dentro de los horarios del restaurante."
         if self.diccionario_reservas[hora] < 3: # Si el valor de hora en el diccionaro es menor a 3 continua
             self.diccionario_reservas[hora] += 1 # Suma 1 al valor y muestra en pantalla el mensaje
-            return f"Reserva realizada {client.name}"
+            return f"Reserva realizada {client.name}" # Si no se cumple ninguna de las condiciones anteriores muestra el mensaje
         else:
             return "La reserva no se ha podido realizar, pruebe en otro horario." # En caso que no entre en ninguno de los casos muestra el mensaje
         
