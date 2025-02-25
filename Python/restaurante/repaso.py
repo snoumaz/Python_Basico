@@ -47,7 +47,13 @@ class Restaurante(): # Classe Restaurante
 
 cliente_1 = Cliente("Anna") # Creamos el objeto cliente_1
 restaurante_1 = Restaurante("Can Pizza","Cocina Italiana",(13,14,15,20,21,22))  # Creacion objeto restaurante_1    
-
-
+cliente_2 = Cliente("David")
+cliente_3 = Cliente("Ferran")
+cliente_4 = Cliente("Anna")
+cliente_5 = Cliente("Luis")
 
 print(restaurante_1.reservas(cliente_1, 14)) # muestra en pantalla la reserva
+print(restaurante_1.reservas(cliente_2, 14))
+print(restaurante_1.reservas(cliente_3, 14))
+print(restaurante_1.reservas(cliente_4, 14))
+print(restaurante_1.reservas(cliente_5, 13))
