@@ -32,6 +32,7 @@ class Libro():
         self.nombre_autor = nombre_autor
         self.apellido_autor = apellido_autor
         self.titulo = titulo
+        self.stock=0
     def __str__(self):
         return self.titulo
 
@@ -42,6 +43,7 @@ class Biblioteca():
         self.direccion = direccion
         self.lectores = []
         self.libros = []
+        
 
     def agregar_lector(self, nombre, apellido):
 
@@ -58,8 +60,10 @@ class Biblioteca():
 
         for libro in self.libros:
             if libro.nombre_autor == nombre_autor and libro.apellido_autor == apellido_autor and libro.titulo == titulo:
+                
+                # print(self.libros)
                 return f"El libro {titulo} del autor {nombre_autor} {apellido_autor} ya esta en la biblioteca"
-        
+
         nuevo_libro = Libro(nombre_autor,apellido_autor,titulo)
         self.libros.append(nuevo_libro)
         #print(self.libros)
@@ -96,8 +100,8 @@ print(biblioteca.agregar_libro("Miguel","Lara","Don Quijote"))
 print(biblioteca.agregar_libro("Rafa","de Cervantes","Yo y yo"))
 
 
-print(biblioteca.busca_libro("Rafa","de Cervantes","Yo y yo"))
-print(biblioteca.mostrar_libro())
+# print(biblioteca.busca_libro("Rafa","de Cervantes","Yo y yo"))
+# print(biblioteca.mostrar_libro())
 
 
 
