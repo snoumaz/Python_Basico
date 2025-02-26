@@ -19,136 +19,91 @@ El programa debe crear las siguientes clases con sus métodos:
     - mostrar libros de la biblioteca
 
 """
-
-# Creación de la clase Lector
+ 
 class Lector:
     def __init__(self, nombre, apellido):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.reservas = []  # Lista de libros reservados
+        self.nombre, self.apellido = nombre, apellido
+        self.reservas = set()  # Evita reservas duplicadas
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido} (Reservas: {len(self.reservas)})"
+        return f"{self.nombre} {self.apellido} ({len(self.reservas)} reservas)"
 
-# Creación de la clase Libro
+
 class Libro:
-    def __init__(self, nombre_autor, apellido_autor, titulo, stock=1):
-        self.nombre_autor = nombre_autor
-        self.apellido_autor = apellido_autor
-        self.titulo = titulo
-        self.stock = stock  # Número de ejemplares disponibles
-        self.lista_espera = []  # Lista de lectores esperando el libro
+    def __init__(self, autor, titulo, stock=1):
+        self.autor, self.titulo, self.stock = autor, titulo, stock
+        self.lista_espera = []
 
     def __str__(self):
-        return f"'{self.titulo}' de {self.nombre_autor} {self.apellido_autor} (Stock: {self.stock})"
+        return f"'{self.titulo}' de {self.autor} (Stock: {self.stock})"
 
-# Creación de la clase Biblioteca
+
 class Biblioteca:
     def __init__(self, nombre, direccion):
-        self.nombre = nombre
-        self.direccion = direccion
-        self.lectores = []
-        self.libros = []
+        self.nombre, self.direccion = nombre, direccion
+        self.lectores, self.libros = {}, {}
 
     def agregar_lector(self, nombre, apellido):
-        for lector in self.lectores:
-            if lector.nombre == nombre and lector.apellido == apellido:
-                return f"❌ El lector {nombre} {apellido} ya está registrado."
+        if (clave := f"{nombre} {apellido}") in self.lectores:
+            return f"❌ {clave} ya registrado."
+        self.lectores[clave] = Lector(nombre, apellido)
+        return f"✅ Lector {clave} agregado."
 
-        nuevo_lector = Lector(nombre, apellido)
-        self.lectores.append(nuevo_lector)
-        return f"✅ Lector {nombre} {apellido} agregado con éxito."
+    def agregar_libro(self, autor, titulo, stock=1):
+        clave = titulo.lower()
+        self.libros.setdefault(clave, Libro(autor, titulo, 0)).stock += stock
+        return f"✅ '{titulo}' agregado. Stock: {self.libros[clave].stock}"
 
-    def agregar_libro(self, nombre_autor, apellido_autor, titulo, stock=1):
-        for libro in self.libros:
-            if libro.nombre_autor == nombre_autor and libro.apellido_autor == apellido_autor and libro.titulo == titulo:
-                libro.stock += stock
-                return f"📚 Se han añadido {stock} ejemplares del libro '{titulo}' de {nombre_autor} {apellido_autor}."
+    def busca_libro(self, titulo):
+        return str(self.libros.get(titulo.lower(), f"❌ '{titulo}' no disponible."))
 
-        nuevo_libro = Libro(nombre_autor, apellido_autor, titulo, stock)
-        self.libros.append(nuevo_libro)
-        return f"✅ Libro '{titulo}' de {nombre_autor} {apellido_autor} agregado con {stock} ejemplares."
-
-    def busca_libro(self, nombre_autor, apellido_autor, titulo):
-        for libro in self.libros:
-            if libro.nombre_autor == nombre_autor and libro.apellido_autor == apellido_autor and libro.titulo == titulo:
-                return f"🔍 El libro '{titulo}' de {nombre_autor} {apellido_autor} está disponible con {libro.stock} ejemplares."
-        return f"❌ El libro '{titulo}' de {nombre_autor} {apellido_autor} no está en la biblioteca."
-
-    def mostrar_libros(self):
-        if not self.libros:
-            return "📖 La biblioteca no tiene libros registrados."
-        return "\n".join(str(libro) for libro in self.libros)
-
-    def mostrar_lectores(self):
-        if not self.lectores:
-            return "👤 No hay lectores registrados."
-        return "\n".join(str(lector) for lector in self.lectores)
-
-    def reservar_libro(self, nombre_lector, apellido_lector, nombre_autor, apellido_autor, titulo):
-        lector = next((l for l in self.lectores if l.nombre == nombre_lector and l.apellido == apellido_lector), None)
-        libro = next((b for b in self.libros if b.nombre_autor == nombre_autor and b.apellido_autor == apellido_autor and b.titulo == titulo), None)
-
-        if not lector:
-            return f"❌ El lector {nombre_lector} {apellido_lector} no está registrado en la biblioteca."
-        if not libro:
-            return f"❌ El libro '{titulo}' de {nombre_autor} {apellido_autor} no está disponible en la biblioteca."
+    def reservar_libro(self, nombre, apellido, titulo):
+        lector, libro = self.lectores.get(f"{nombre} {apellido}"), self.libros.get(titulo.lower())
+        if not lector: return "❌ Lector no registrado."
+        if not libro: return "❌ Libro no disponible."
 
         if libro.stock > 0:
             libro.stock -= 1
-            lector.reservas.append(libro)
-            return f"✅ Reserva exitosa: {nombre_lector} {apellido_lector} ha reservado '{titulo}' de {nombre_autor} {apellido_autor}."
-        else:
-            libro.lista_espera.append(lector)
-            return f"📌 No hay stock disponible. {nombre_lector} {apellido_lector} ha sido agregado a la lista de espera para '{titulo}'."
-
-    def devolver_libro(self, nombre_lector, apellido_lector, titulo):
-        lector = next((l for l in self.lectores if l.nombre == nombre_lector and l.apellido == apellido_lector), None)
+            lector.reservas.add(libro)
+            return f"✅ {nombre} reservó '{titulo}'. Stock: {libro.stock}"
         
-        if not lector:
-            return f"❌ El lector {nombre_lector} {apellido_lector} no está registrado en la biblioteca."
+        libro.lista_espera.append(lector)
+        return f"📌 Sin stock. {nombre} en lista de espera."
 
-        libro_reservado = next((b for b in lector.reservas if b.titulo == titulo), None)
-        
-        if not libro_reservado:
-            return f"❌ El lector {nombre_lector} {apellido_lector} no tiene reservado el libro '{titulo}'."
+    def devolver_libro(self, nombre, apellido, titulo):
+        lector, libro = self.lectores.get(f"{nombre} {apellido}"), self.libros.get(titulo.lower())
+        if not lector or libro not in lector.reservas: return f"❌ No tiene '{titulo}'."
 
-        lector.reservas.remove(libro_reservado)
-        libro_reservado.stock += 1
+        lector.reservas.remove(libro)
+        libro.stock += 1
 
-        # Verificar si hay alguien en la lista de espera
-        if libro_reservado.lista_espera:
-            siguiente_lector = libro_reservado.lista_espera.pop(0)
-            siguiente_lector.reservas.append(libro_reservado)
-            libro_reservado.stock -= 1
-            return f"🔄 {nombre_lector} {apellido_lector} ha devuelto '{titulo}', y ahora {siguiente_lector.nombre} {siguiente_lector.apellido} lo tiene reservado."
-        
-        return f"✅ {nombre_lector} {apellido_lector} ha devuelto '{titulo}'. El libro ahora está disponible."
+        if libro.lista_espera:
+            siguiente_lector = libro.lista_espera.pop(0)
+            siguiente_lector.reservas.add(libro)
+            libro.stock -= 1
+            return f"🔄 '{titulo}' pasa a {siguiente_lector.nombre} {siguiente_lector.apellido}."
+
+        return f"✅ '{titulo}' devuelto. Stock: {libro.stock}."
+
+    def mostrar_libros(self):
+        return "\n".join(map(str, self.libros.values())) or "📖 No hay libros."
+
+    def mostrar_lectores(self):
+        return "\n".join(map(str, self.lectores.values())) or "👤 No hay lectores."
 
 # Creación de la biblioteca
 biblioteca = Biblioteca("Biblioteca Nacional", "Calle Mayor, 10")
+print(f"🏛️ {biblioteca.nombre} en {biblioteca.direccion}")
 
-print(f"🏛️ La Biblioteca '{biblioteca.nombre}' está ubicada en {biblioteca.direccion}")
-
-# Agregar lectores a la biblioteca
+# Pruebas rápidas
 print(biblioteca.agregar_lector("Juan", "Perez"))
 print(biblioteca.agregar_lector("Ana", "Gonzalez"))
-print(biblioteca.agregar_lector("Carlos", "Gomez"))
+print(biblioteca.agregar_libro("Miguel de Cervantes", "Don Quijote", 1))
 
-# Agregar libros a la biblioteca
-print(biblioteca.agregar_libro("Miguel", "de Cervantes", "Don Quijote", 5))
-print(biblioteca.agregar_libro("Miguel", "de Cervantes", "El Quijote", 1))
-print(biblioteca.agregar_libro("Durazno", "de Cervantes", "Don Quijote", 2))
-# Reservar libros
-print(biblioteca.reservar_libro("Juan", "Perez", "Miguel", "de Cervantes", "Don Quijote"))
-print(biblioteca.reservar_libro("Ana", "Gonzalez", "Miguel", "de Cervantes", "Don Quijote"))  # Sin stock, va a lista de espera
+print(biblioteca.reservar_libro("Juan", "Perez", "Don Quijote"))
+print(biblioteca.reservar_libro("Ana", "Gonzalez", "Don Quijote"))  # Lista de espera
 
-# Devolver un libro
-print(biblioteca.devolver_libro("Juan", "Perez", "Don Quijote"))  # Se libera y pasa a Ana
+print(biblioteca.devolver_libro("Juan", "Perez", "Don Quijote"))  # Pasa a Ana
 
-# Mostrar libros y lectores
-print("\n📚 Lista de libros en la biblioteca:")
-print(biblioteca.mostrar_libros())
-
-print("\n👥 Lista de lectores en la biblioteca:")
-print(biblioteca.mostrar_lectores())
+print("\n📚 Libros en la biblioteca:\n", biblioteca.mostrar_libros())
+print("\n👥 Lectores en la biblioteca:\n", biblioteca.mostrar_lectores())
