@@ -1,0 +1,24 @@
+{
+    "lectores": {
+        "Juan Perez": {
+            "nombre": "Juan",
+            "apellido": "Perez",
+            "reservas": {}
+        },
+        "Ana Gonzalez": {
+            "nombre": "Ana",
+            "apellido": "Gonzalez",
+            "reservas": {
+                "don quijote": "2025-03-28"
+            }
+        }
+    },
+    "libros": {
+        "don quijote": {
+            "autor": "Miguel de Cervantes",
+            "titulo": "Don Quijote",
+            "stock": 0,
+            "lista_espera": []
+        }
+    }
+}
