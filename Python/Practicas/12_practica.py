@@ -62,35 +62,37 @@ class Biblioteca():
 
     # Creacion del metodo para agregar un Libro
     def agregar_libro(self,autor,titulo,stock=1): #nombre_autor,apellido_autor
-        for libro in self.libros:
-            if libro.autor == autor and libro.titulo == titulo:
-                libro.stock += stock
+        for libro in self.libros: # para cada libro dentro de self.libros
+            if libro.autor == autor and libro.titulo == titulo: # compara el autor y el titulo en self.libros
+                libro.stock += stock # añade al stock del libro 1
                 return f"Se han añadido {stock} ejemplares del libro '{titulo}' de {autor}."
             
         # Si no existe, se agrega
-        nuevo_libro = Libro(autor, titulo, stock) #
-        self.libros.append(nuevo_libro)
+        nuevo_libro = Libro(autor, titulo, stock) # Crea un objeto de la clase libro
+        self.libros.append(nuevo_libro) # añade el nuevo objeto a la lista self.libro
         return f"Libro '{titulo}' de {autor} agregado con {stock} ejemplares."
 
-
+    # Creacion del metodo para buscar libro
     def busca_libro(self, autor, titulo):
-        for libro in self.libros:
-            if libro.autor == autor and libro.titulo == titulo:
+        for libro in self.libros:  # para libro en la self.libros 
+            if libro.autor == autor and libro.titulo == titulo: # compara tanto el titulo como el autor
                 return f"El libro '{titulo}' de {autor} está disponible con {libro.stock} ejemplares."
         return f"El libro '{titulo}' de {autor} no está en la biblioteca."
 
+    # Creacion del metodo para mostrar los libros
     def mostrar_libros(self):
-        if not self.libros:
+        if not self.libros: # si el libro no esta registrado muestra el mensaje
             return "La biblioteca no tiene libros registrados."
-        return "\n".join(str(libro) for libro in self.libros)
+        return "\n".join(str(libro) for libro in self.libros) # si el libro esta registrado muestra todos
 
+    # Creacion del metodo para reservar los libros
     def reservar(self,titulo, autor, nombre,apellido):
-        for libro in self.libros:
-            if libro.autor == autor and libro.titulo == titulo and libro.stock > 0:
-                print(libro.titulo, libro.stock)
-                libro.stock -= 1
-                print(libro.titulo, libro.stock)
-                for lector in self.lectores:
+        for libro in self.libros: # para cada libro en self.libros
+            if libro.autor == autor and libro.titulo == titulo and libro.stock > 0: # si los parametros titulo, autor y stock se cumplen
+                #print(libro.titulo, libro.stock)
+                libro.stock -= 1 # Resta 1 al stock del libro
+                #print(libro.titulo, libro.stock)
+                for lector in self.lectores: # para el lector en 
                     if lector.nombre == nombre and lector.apellido == apellido:
                         lector.reserva += 1
                         return f"El libro {titulo} del autor {autor}, ha sido reservado por: {nombre} {apellido}"
