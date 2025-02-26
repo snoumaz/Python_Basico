@@ -92,9 +92,9 @@ class Biblioteca():
                 #print(libro.titulo, libro.stock)
                 libro.stock -= 1 # Resta 1 al stock del libro
                 #print(libro.titulo, libro.stock)
-                for lector in self.lectores: # para el lector en 
-                    if lector.nombre == nombre and lector.apellido == apellido:
-                        lector.reserva += 1
+                for lector in self.lectores: # para el lector en la lista self.lectores
+                    if lector.nombre == nombre and lector.apellido == apellido: # compara si los parametros nombre, apellido estan en la lista
+                        lector.reserva += 1 # añade 1 a la reserva del objeto lector
                         return f"El libro {titulo} del autor {autor}, ha sido reservado por: {nombre} {apellido}"
                     else:
                         return f"El libro {titulo} del autor {autor}, no se ha podido reservar"
