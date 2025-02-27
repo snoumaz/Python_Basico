@@ -28,7 +28,7 @@ class Libro():
     - Titulo: Titulo del libro\n
     - Cantidad: Atributo oculto\n
     """
-    def __init__(self, autor, titulo, stock=1): #
+    def __init__(self, autor, titulo, stock=1): # Constructor con los atributos autor, titulo y stock
         self.autor = autor
         self.titulo = titulo
         self.stock = stock
@@ -38,7 +38,7 @@ class Libro():
 
 # Creacion Clase 
 class Lector():
-    def __init__(self, nombre, apellido): 
+    def __init__(self, nombre, apellido): # Constructor con los atributos nombre y apellido
         """ Constructor con los atributos:\n
         - Nombre: Nombre del lector\n
         - Apellido: Apellido del lector\n
@@ -50,7 +50,7 @@ class Lector():
 
 # Creacion Clase 
 class Biblioteca():
-    def __init__(self, nombre, direccion):
+    def __init__(self, nombre, direccion): # Constructor con los atributos nombre y direccion. Tambien se crean las listas y diccionarios
         """ Constructor con los atributos:\n
         - Nombre: Nombre de la Biblioteca\n
         - Direccion: Direccion de la Biblioteca\n
@@ -88,7 +88,7 @@ class Biblioteca():
     # Creacion del metodo para agregar un Libro
     def agregar_libro(self, autor, titulo, stock=1): #nombre_autor,apellido_autor
         """
-        Agrega un libro a la biblioteca.
+        Agrega un libro a la biblioteca.\n
         Si el libro ya existe, aumenta su stock.\n
         Atributos:\n
         autor (str): Nombre del autor.\n
@@ -108,7 +108,7 @@ class Biblioteca():
     # Creacion del metodo para buscar libro
     def busca_libro(self, autor, titulo):
         """
-        Busca un libro por autor y título. Devuelve una cadena con la información del libro o un mensaje indicando que el libro no está en la biblioteca.\n
+        Busca un libro por autor y título.\n Devuelve una cadena con la información del libro o un mensaje indicando que el libro no está en la biblioteca.\n
         Atributo:\n
         autor (str): Nombre del autor del libro.\n
         titulo (str): Título del libro.\n
@@ -121,7 +121,7 @@ class Biblioteca():
     # Creacion del metodo para mostrar los libros
     def mostrar_libros(self):
         """
-        Busca el libro en la lista y sino esta devuelve un mensaje.
+        Muestra la lista de libros de la biblioteca.\n
         """
         if not self.lista_libros: # si el libro no esta registrado muestra el mensaje
             return "La biblioteca no tiene libros registrados."
@@ -130,7 +130,7 @@ class Biblioteca():
     # Creacion del metodo para prestar un libro
     def prestar_libro(self, autor, titulo, nombre, apellido):
         """
-        Añade un libro a la lista de reservas del lector. Si el libro está disponible, se reduce su stock en uno.
+        Añade un libro a la lista de reservas del lector.\nSi el libro está disponible, se reduce su stock en uno.\n
         Añade el lector a la lista de reservas del libro.\n
         Atributos:\n
         autor (str): Nombre del autor del libro.\n
@@ -153,7 +153,7 @@ class Biblioteca():
     # Creacion del metodo devolucion de los libros
     def devolucion(self, nombre, apellido, titulo, autor): # recibe el nombre y el apellido del lector y el titulo y el autor del libro 
         """
-        Devuelve un libro prestado a un lector.
+        Devuelve un libro prestado a un lector.\n
         Para que un libro pueda ser devuelto, debe estar en la lista de libros prestados.\n
         Atributos:\n
         - nombre: Nombre del lector\n
