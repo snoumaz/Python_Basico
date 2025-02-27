@@ -89,7 +89,7 @@ class Biblioteca():
     def agregar_libro(self, autor, titulo, stock=1): #nombre_autor,apellido_autor
         """
         Agrega un libro a la biblioteca.
-        Si el libro ya existe, aumenta su stock.
+        Si el libro ya existe, aumenta su stock.\n
         Atributos:\n
         autor (str): Nombre del autor.\n
         titulo (str): Título del libro.\n
@@ -108,8 +108,8 @@ class Biblioteca():
     # Creacion del metodo para buscar libro
     def busca_libro(self, autor, titulo):
         """
-        Busca un libro por autor y título. Devuelve una cadena con la información del libro o un mensaje indicando que el libro no está en la biblioteca.
-        atributo:\n
+        Busca un libro por autor y título. Devuelve una cadena con la información del libro o un mensaje indicando que el libro no está en la biblioteca.\n
+        Atributo:\n
         autor (str): Nombre del autor del libro.\n
         titulo (str): Título del libro.\n
         """
@@ -120,6 +120,9 @@ class Biblioteca():
 
     # Creacion del metodo para mostrar los libros
     def mostrar_libros(self):
+        """
+        Busca el libro en la lista y sino esta devuelve un mensaje.
+        """
         if not self.lista_libros: # si el libro no esta registrado muestra el mensaje
             return "La biblioteca no tiene libros registrados."
         return "\n".join(str(libro) for libro in self.lista_libros) # si el libro esta registrado muestra todos
@@ -128,7 +131,7 @@ class Biblioteca():
     def prestar_libro(self, autor, titulo, nombre, apellido):
         """
         Añade un libro a la lista de reservas del lector. Si el libro está disponible, se reduce su stock en uno.
-        Añade el lector a la lista de reservas del libro.
+        Añade el lector a la lista de reservas del libro.\n
         Atributos:\n
         autor (str): Nombre del autor del libro.\n
         titulo (str): Título del libro.\n
@@ -151,7 +154,7 @@ class Biblioteca():
     def devolucion(self, nombre, apellido, titulo, autor): # recibe el nombre y el apellido del lector y el titulo y el autor del libro 
         """
         Devuelve un libro prestado a un lector.
-        Para que un libro pueda ser devuelto, debe estar en la lista de libros prestados.
+        Para que un libro pueda ser devuelto, debe estar en la lista de libros prestados.\n
         Atributos:\n
         - nombre: Nombre del lector\n
         - apellido: Apellido del lector\n
